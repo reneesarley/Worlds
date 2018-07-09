@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+@foreach (var country in Model)
+{
+  <h4>@country.GetName()</h4>
+  <p>Code is: @country.GetCode()</p>
+
+}
