@@ -25,14 +25,21 @@ namespace World.Controllers
 
         [HttpGet("/result")]
         public IActionResult FormResult()
-        {   
-            
-            //if (Request.Query["selection"].GetType() == string)
-            //{
-                
-            //}
-            object userSelections = Request.Query["selection"];  
+        {
+
+            object userSelections = Request.Query["selection"];
+            Country.SetChoice(userSelections);
+       
             return View(Country.AllResults(userSelections));
+        }
+
+        [HttpGet("/filter")]
+        public IActionResult FinalResult()
+        {
+
+            object userSelections = Request.Query["final"];
+
+            return View(Country.FilterSelected(userSelections));
         }
 
 

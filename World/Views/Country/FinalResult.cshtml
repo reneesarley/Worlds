@@ -8,11 +8,11 @@
 <button class="btn btn-primary" type="submit">
     Dropdown button
   </button>
-<select name="final">
+<ul name="final">
     @foreach (var option in Model)
     {
-       <option value="@option">@option</option>
+       <li>@option.GetName()</li>
     }
-</select>
+</ul>
 
 </form>
