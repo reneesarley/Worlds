@@ -63,6 +63,7 @@ namespace World.Models
             {
                 string column = rdr.GetString(0);
 
+
                 //Country newCountry = new Country(countryCode, countryName);
                 allColumns.Add(column);
             }
@@ -74,9 +75,17 @@ namespace World.Models
             return allColumns;
         }
 
-        public static List<string> AllResults(string selection)
+        //public void Type(){
+        //    MySqlConnection conn = DB.Connection();
+        //    conn.Open();
+        //    MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+        //    cmd.CommandText = @"SELECT DISTINCT " + selection + " FROM country;";
+        //    MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+        //}
+
+        public static List<object> AllResults(object selection)
         {
-            List<string> allColumns = new List<string> { };
+            List<object> allColumns = new List<object> { };
             MySqlConnection conn = DB.Connection();
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
@@ -84,10 +93,9 @@ namespace World.Models
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             while (rdr.Read())
             {
-                string column = rdr.GetString(0);
-
-                //Country newCountry = new Country(countryCode, countryName);
+                object column = rdr[0];
                 allColumns.Add(column);
+
             }
             conn.Close();
             if (conn != null)

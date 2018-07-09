@@ -1,17 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Country Selector";
 }
+        
 <br>
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<form name="select" action="/result">
+<button class="btn btn-primary" type="submit">
     Dropdown button
   </button>
-  <ul id="columns" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              @foreach (var column in Model)
-        {
+<select name="selection">
+    @foreach (var option in Model)
+    {
+       <option value="@option">@option</option>
+    }
+</select>
 
-         <li><a class="dropdown-item" href="/result" value="@column">@column</a></li>
-
-        }
-  </ul>
-</div>
+</form>

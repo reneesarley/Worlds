@@ -25,10 +25,14 @@ namespace World.Controllers
 
         [HttpGet("/result")]
         public IActionResult FormResult()
-        {
-            //string userSelections = Request.Query["columns"].ToString();  
-            string continent = "continent";
-            return View(Country.AllResults(continent));
+        {   
+            
+            //if (Request.Query["selection"].GetType() == string)
+            //{
+                
+            //}
+            object userSelections = Request.Query["selection"];  
+            return View(Country.AllResults(userSelections));
         }
 
 
